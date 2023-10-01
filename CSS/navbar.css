@@ -1,0 +1,104 @@
+/* Alle kleuren */
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #2ECC71;
+    --tertiary-color: #F1C40F;
+    --background-color: #F7F7F7;
+    --navbar-footer-bg: #333333;
+    --main-text-color: #222222;
+    --secondary-text-color: #777777;
+    --success-color: #28A745;
+    --error-color: #DC3545;
+    --info-color: #17A2B8;
+    /* Hoe: background-color: var(--primary-color: #007BFF); */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--navbar-footer-bg);
+    padding: 0.5rem 2rem;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.navbar-links {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar-links ul {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 24px;
+}
+
+.navbar-links li a:hover {
+    color: #007BFF;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .navbar-links ul {
+        flex-direction: column;
+    }
+
+    .navbar-links li {
+        margin: 0.5rem 0;
+    }
+
+    .navbar-links.active {
+        display: block;
+    }
+}
+
+    .navLogo {
+        width: 75px;
+        height: auto;
+    }
