@@ -78,7 +78,7 @@ header {
 
 .logo {
     cursor: pointer;
-    width: 5.5vw;
+    width: 5.3vw;
     border-radius: 30px;
     scale: 1;
 }
@@ -125,13 +125,13 @@ button:hover {
 }
 
 /* Main */
-
+/* Listings */
 .grid-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 2rem;
-    background-color: var(--background-color);
+    background-color: var(--navbar-footer-bg);
 }
 
 .main-title {
@@ -139,7 +139,8 @@ button:hover {
     text-align: center;
     margin-bottom: 2rem;
     font-family: "Montserrat", sans-serif;
-    color: var(--primary-color);  
+    font-size: 38px;
+    color: var(--primary-color);   
 }
 
 .grid-item {
@@ -149,7 +150,21 @@ button:hover {
     padding: 1rem;
     text-align: center;
     background-color: var(--navbar-footer-bg);
+    transition: ease 0.3s all;
+    border: solid 2px var(--primary-color);
 }
+
+.grid-item:hover {
+    scale: 1.03;
+    border: solid 3px var(--info-color);
+    filter: brightness(110%);
+}
+
+.grid-item:hover img {
+    transform: scale(1.03);
+    transition: ease 0.3s all;
+}
+
 
 .grid-item img {
     max-width: 100%;
@@ -166,10 +181,211 @@ button:hover {
     display: inline-block;
     margin-top: 0.5rem;
     color: var(--info-color);  
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     font-family: "Montserrat", sans-serif;
 }
 
 .grid-item a:hover {
     color: var(--primary-color);
 }
+
+/* Informatie */
+
+.custom-hr {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    margin: 3rem 0;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.info-content {
+    flex: 1;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+}
+
+.info-content > h2 {
+    font-size: 38px;
+    color: var(--primary-color);
+}
+
+.info-content > p {
+    font-size: 20px;
+    max-width: 40vw;
+    color: var(--info-color);
+}
+
+.slideshow-container {
+    flex: 1;
+    position: relative;
+    max-height: 275vw;
+    overflow: hidden;
+    border: solid 2px var(--info-color);
+    transition: all ease-in 0.2s;
+}
+
+.slideshow-container:hover {
+    border: solid 2px var(--tertiary-color);
+    scale: 1.03;
+    cursor: crosshair;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    width: 100%;
+    background: #3586FF;
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 150px;
+}
+
+footer .social_icon,
+footer .menu {
+    position: relative;
+    background-color: #3586FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+footer .social_icon li,
+footer .menu li {
+    list-style: none;
+    background-color: #3586FF;
+}
+
+footer .social_icon li a {
+    background-color: #3586FF;
+    border-radius: 50%;  
+    display: inline-block;
+    padding: 10px;  
+    transition: background-color 0.3s ease;
+}
+
+footer .social_icon li a:hover {
+    background-color: #2a6fca; 
+}
+
+
+footer .social_icon li a:hover {
+    transform: translateY(-10px);
+}
+
+footer .menu li a {
+    font-size: 1.2em;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+    opacity: 0.75;
+    background-color: #3586FF;
+}
+
+footer .menu li a:hover {
+    opacity: 1;
+}
+
+footer p {
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    background-color: #3586FF;
+    font-family: "Montserrat", sans-serif;
+}
+
+footer .wave {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(../MEDIA/wave.png);
+    background-size: 1000px 100px;
+}
+
+footer .wave#wave1 {
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWave 4s linear infinite;
+}
+
+footer .wave#wave2 {
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animateWave_02 4s linear infinite;
+}
+
+footer .wave#wave3 {
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animateWave 3s linear infinite;
+}
+
+footer .wave#wave4 {
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animateWave_02 3s linear infinite;
+}
+
+.social_icon li a ion-icon {
+    background-color: #3586FF;
+    padding: 8px;
+    border-radius: 50%; 
+    scale: 2.2;
+    color: white;
+}
+
+@keyframes animateWave {
+    0% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animateWave_2 {
+    0% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-position-x: 0px;
+    }
+}
+

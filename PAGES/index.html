@@ -21,9 +21,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap" rel="stylesheet"> 
     <!-- Javascript -->
     <script defer src="../JS/script.js"></script>
+    <!-- Ionic icons -->
+    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <div class="loader "></div>
+    <!-- Preloader -->
+    <div class="loader"></div>
+
+    <!-- Header - Navbar -->
     <header class="animate__animated animate__fadeInDown">
         <a href="https://github.com/romanized" target="_blank"><img src="../MEDIA/logo1.png" alt="logo" class="logo"></a> 
         <nav>
@@ -36,44 +42,92 @@
         <a href="#" class="cta"><button>Login</button></a>
     </header>
 
-
     <main>
+        <!-- Listing games -->
         <section class="grid-container">
-            <h1 class="main-title">Trending producten</h1>
+            <h1 class="main-title animate__animated animate__slideInLeft">Trending producten</h1>
     
-            <div class="grid-item">
+            <div class="grid-item animate__animated animate__fadeInUp animate__faster">
                 <img src="../MEDIA/listing1.jpeg" width="175vw" alt="Afbeelding 1">
                 <h2>Super Mario Bros</h2>
-                <a href="#link-naar-pagina-1">Meer info</a>
+                <a href="./verzameling.html">Meer info</a>
             </div>
-            <div class="grid-item">
-                <img src="../MEDIA/image1.jpg" width="175vw" alt="Afbeelding 2">
+            <div class="grid-item animate__animated animate__fadeInUp animate__fast">
+                <img src="../MEDIA/listing2.jpg" width="195vw" alt="Afbeelding 2">
                 <h2>God of War</h2>
-                <a href="#link-naar-pagina-1">Meer info</a>
+                <a href="./verzameling.html">Meer info</a>
             </div>
-            <div class="grid-item">
-                <img src="../MEDIA/image1.jpg" width="175vw" alt="Afbeelding 3">
+            <div class="grid-item animate__animated animate__fadeInUp">
+                <img src="../MEDIA/listing3.jpg" width="170vw" alt="Afbeelding 3">
                 <h2>Fortnite</h2>
-                <a href="#link-naar-pagina-1">Meer info</a>
+                <a href="./verzameling.html">Meer info</a>
             </div>
-            <div class="grid-item">
-                <img src="../MEDIA/image1.jpg" width="175vw" alt="Afbeelding 4">
+            <div class="grid-item animate__animated animate__fadeInUp animate__faster">
+                <img src="../MEDIA/listing4.jpg" width="175vw" alt="Afbeelding 4">
                 <h2>Five Nights at Freddy's</h2>
-                <a href="#link-naar-pagina-1">Meer info</a>
+                <a href="./verzameling.html">Meer info</a>
             </div>
-            <div class="grid-item">
-                <img src="../MEDIA/image1.jpg" width="175vw" alt="Afbeelding 5">
+            <div class="grid-item animate__animated animate__fadeInUp animate__fast">
+                <img src="../MEDIA/listing5.jpg" width="205vw" alt="Afbeelding 5">
                 <h2>League of Legends</h2>
-                <a href="#link-naar-pagina-1">Meer info</a>
+                <a href="./verzameling.html">Meer info</a>
             </div>
-            <div class="grid-item">
-                <img src="../MEDIA/image1.jpg" width="175vw" alt="Afbeelding 6">
+            <div class="grid-item animate__animated animate__fadeInUp">
+                <img src="../MEDIA/listing6.jpg" width="165vw" alt="Afbeelding 6">
                 <h2>Consoles</h2>
-                <a href="#link-naar-pagina-1">Meer info</a>
+                <a href="./verzameling.html">Meer info</a>
             </div>
-    
+        </section>
+
+        <hr class="custom-hr">
+
+        <!-- Informatie  -->
+        <section class="info-section">
+            
+            <div class="info-content animate__animated animate__lightSpeedInLeft">
+                <h2>Over 'de Verzamelaars'</h2>
+                <p>Welkom bij deVerzamelaars, dé plek voor unieke verzamelingen en collectie-items van games. Wij bieden items uit diverse gamegenres, dus er is voor elk wat wils. Neem gerust een kijkje en laat je verrassen door ons uitgebreide assortiment. Heb je vragen of opmerkingen? Aarzel dan niet om onze contactpagina te bezoeken. Wij staan klaar om je te helpen!</p>
+            </div>
+
+            <div class="slideshow-container animate__animated animate__lightSpeedInRight">
+                <div class="slide fade">
+                    <img src="../MEDIA/info1.jpg" alt="Slide 1">
+                </div>
+                <div class="slide fade">
+                    <img src="../MEDIA/info2.jpeg" alt="Slide 2">
+                </div>
+                <div class="slide fade">
+                    <img src="../MEDIA/info3.jpg" alt="Slide 3">
+                </div>
+                <div class="slide fade">
+                    <img src="../MEDIA/info4.jpg" alt="Slide 4">
+                </div>
+                <div class="slide fade">
+                    <img src="../MEDIA/info5.jpg" alt="Slide 5">
+                </div>
+            </div>
         </section>
     </main>
-    
+
+    <!-- Footer -->
+    <footer>
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social_icon">
+            <li><a target="_blank" href="https://www.instagram.com/sfzls/"><ion-icon name="logo-instagram"></ion-icon></a></li>
+            <li><a target="_blank" href="https://www.glr.nl/"><ion-icon name="school-outline"></ion-icon></a></li>
+            <li><a target="_blank" href="https://github.com/romanized"><ion-icon name="logo-github"></ion-icon></a></li>
+        </ul>
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="./verzameling.html">Verzameling</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+        </ul>
+        <p>© 2023 de Verzamelaars. Alle rechten voorbehouden.</p>
+    </footer>
 </body>
 </html>
