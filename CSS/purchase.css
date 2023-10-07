@@ -1,0 +1,143 @@
+/* Alle kleuren */
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #2ECC71;
+    --tertiary-color: #F1C40F;
+    --background-color: #F7F7F7;
+    --navbar-footer-bg: #333333;
+    --main-text-color: #222222;
+    --secondary-text-color: #777777;
+    --success-color: #28A745;
+    --error-color: #DC3545;
+    --info-color: #17A2B8;
+    /* Hoe: background-color: var(--primary-color: #007BFF); */
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    color: #333;
+}
+
+.beschrijving-titel {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    color: var(--info-color);
+    padding-bottom: 6px;
+}
+
+.beschrijving-eigenschappen {
+    color: var(--primary-color);
+}
+
+.beschrijving {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5em;
+    color: var(--info-color);
+    filter: brightness(110%);
+    padding: 16px;
+    border-radius: 10px;
+    max-width: 80%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5vw;
+}
+
+.image-product {
+    max-width: 100%;
+    width: 20vw;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15vw;
+    margin-bottom: 1.5vw;
+    border-radius: 8px;
+    scale: 1.0;
+    transition: all 1s ease-out;
+    border: solid var(--primary-color) 2px;
+}
+
+.image-product:hover {
+    scale: 1.05;
+    border: solid var(--info-color) 2px;
+}
+
+form {
+    max-width: 500px;
+    margin: 5vw auto;
+    filter: brightness(120%);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+label {
+    font-family: 'Open Sans', sans-serif;
+    display: block;
+    margin: 10px 0 5px;
+    color: var(--info-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="submit"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    color: var(--info-color);
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+
+input[type="submit"] {
+    background-color: var(--primary-color);
+    opacity: 0.85;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    opacity: 1;
+    background-color: var(--primary-color);
+}
+
+/* Voor mobiel */
+@media (min-width: 768px) {
+    .product-info,
+    form {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .product-info {
+        width: calc(60% - 20px);
+        padding-right: 20px;
+        box-sizing: border-box;
+    }
+
+    form {
+        width: calc(40% - 20px);
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+}
+
+footer {
+    margin-top: 10vw;
+}
+
+.prijs {
+    font-family: 'Lato', sans-serif;
+    font-size: 2em;
+    color: var(--info-color);
+    max-width: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-tekst {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    color: var(--background-color);
+}

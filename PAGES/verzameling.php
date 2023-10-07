@@ -1,12 +1,30 @@
+<!-- PHP -->
+<?php
+include '../PHP/db_connection.php';
+
+try {
+    $stmt = $conn->prepare("SELECT * FROM `verzameling`");
+    $stmt->execute();
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+
+<!-- HTML -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Verzameling</title>
     <!-- Styling -->
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/navbar.css">
+    <link rel="stylesheet" href="../CSS/verzameling.css">
     <!-- Logo -->
     <link rel="shortcut icon" href="../MEDIA/logo1.png" type="image/x-icon">
     <!-- Animate.css library -->
@@ -21,20 +39,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap" rel="stylesheet"> 
     <!-- Javascript -->
     <script defer src="../JS/script.js"></script>
+    <!-- Ionic icons -->
+    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
     <div class="loader "></div>
     <header class="animate__animated animate__fadeInDown">
-        <a href="https://github.com/romanized" target="_blank"><img src="../MEDIA/logo1.png" alt="logo" class="logo"></a> 
+    <a href="./index.html"><img src="../MEDIA/logo1.png" alt="logo" class="logo"></a> 
         <nav>
             <ul class="nav_links">
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./verzameling.html">Verzameling</a></li>
-                <li><a class="active" href="#">Contact</a></li>
+                <li><a class="active" href="#">Verzameling</a></li>
+                <li><a href="./contact.php">Contact</a></li>
             </ul>
         </nav>
         <a href="#" class="cta"><button>Login</button></a>
     </header>
+
+    <!-- Verzameling -->
+    <div class="grid-container">
+    <?php foreach ($products as $product) : ?>
+    <div class="grid-item animate__animated animate__zoomIn" data-id="<?php echo $product['ID']; ?>">
+        <p class="items-p padding-items"><?php echo $product['eigenschappen']; ?></p>
+        <img class="verzameling-img" src="<?php echo $product['image']; ?>" alt="<?php echo $product['naam']; ?>">
+        <h2><?php echo $product['naam']; ?></h2>
+        <p class="items-p"><?php echo $product['beschrijving']; ?></p>
+        <a href="purchase.php?id=<?php echo $product['ID']; ?>" class="buy-btn">Kopen</a>
+    </div>
+    <?php endforeach; ?>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -51,10 +85,11 @@
         </ul>
         <ul class="menu">
             <li><a href="./index.html">Home</a></li>
-            <li><a href="./verzameling.html">Verzameling</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="./verzameling.php">Verzameling</a></li>
+            <li><a href="./contact.php">Contact</a></li>
         </ul>
         <p>© 2023 de Verzamelaars. Alle rechten voorbehouden.</p>
-    </footer>
+    </footer>    
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 /* Fonts en lle kleuren */
-:root {
+* {
     --primary-color: #007BFF;
     --secondary-color: #2ECC71;
     --tertiary-color: #F1C40F;
@@ -226,6 +226,18 @@ button:hover {
     color: var(--info-color);
 }
 
+.info-content > p > a {
+    font-size: 20px;
+    max-width: 40vw;
+    color: var(--primary-color);
+    filter: opacity(0.9);
+}
+
+.info-content > p > a:hover {
+    transition: all 0.1s ease-in;
+    filter: opacity(1.0);
+}
+
 .slideshow-container {
     flex: 1;
     position: relative;
@@ -389,3 +401,6 @@ footer .wave#wave4 {
     }
 }
 
+.titel-overons {
+    padding-bottom: 10px;
+}

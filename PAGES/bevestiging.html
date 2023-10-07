@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verzameling</title>
+    <title>Aankoop bevestiging</title>
     <!-- Styling -->
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/navbar.css">
+    <link rel="stylesheet" href="../CSS/verzameling.css">
     <!-- Logo -->
     <link rel="shortcut icon" href="../MEDIA/logo1.png" type="image/x-icon">
     <!-- Animate.css library -->
@@ -21,21 +22,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap" rel="stylesheet"> 
     <!-- Javascript -->
     <script defer src="../JS/script.js"></script>
+    <!-- Ionic icons -->
+    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <div class="loader "></div>
+    <!-- Preloader -->
+    <div class="loader"></div>
+
+    <!-- Header - Navbar -->
     <header class="animate__animated animate__fadeInDown">
-        <a href="https://github.com/romanized" target="_blank"><img src="../MEDIA/logo1.png" alt="logo" class="logo"></a> 
+        <a href="./index.html"><img src="../MEDIA/logo1.png" alt="logo" class="logo"></a> 
         <nav>
             <ul class="nav_links">
                 <li><a href="./index.html">Home</a></li>
-                <li><a class="active" href="#">Verzameling</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./verzameling.php">Verzameling</a></li>
+                <li><a href="./contact.php">Contact</a></li>
             </ul>
         </nav>
         <a href="#" class="cta"><button>Login</button></a>
     </header>
 
+    <center>
+    <h1 class="h1dank">Dank u voor uw aankoop!</h1>
+    <h2 class="dank">Hartelijk dank voor het winkelen bij de Verzamelaars. Uw bestelling is succesvol ontvangen!</h2>
+    <h2 class="danku">Klik <a class="linking" href="./index.html">hier</a> om weer terug te gaan naar onze home pagina</h2>
+</center>
 
     <!-- Footer -->
     <footer>
@@ -52,8 +64,8 @@
         </ul>
         <ul class="menu">
             <li><a href="./index.html">Home</a></li>
-            <li><a href="#">Verzameling</a></li>
-            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./verzameling.php">Verzameling</a></li>
+            <li><a href="./contact.php">Contact</a></li>
         </ul>
         <p>© 2023 de Verzamelaars. Alle rechten voorbehouden.</p>
     </footer>    

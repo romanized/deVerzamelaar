@@ -1,6 +1,7 @@
 /* Alle kleuren */
 :root {
     --primary-color: #007BFF;
+    --hover-button: #449effe5;
     --secondary-color: #2ECC71;
     --tertiary-color: #F1C40F;
     --background-color: #F7F7F7;
@@ -11,4 +12,82 @@
     --error-color: #DC3545;
     --info-color: #17A2B8;
     /* Hoe: background-color: var(--primary-color: #007BFF); */
+}
+
+.grid-item {
+    border-radius: 5%;
+}
+
+.verzameling-img {
+    width: 18vw;
+    height: 18vw;
+    max-width: 100%;
+}
+
+.items-p {
+    color: var(--info-color);  
+    font-family: "Montserrat", sans-serif;
+}
+
+.buy-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.buy-btn:hover {
+    background-color: var(--hover-button);
+    color: #fff;
+}
+
+.grid-item a {
+    color: #fff;
+}
+
+.grid-item a:hover {
+    scale: 1.03;
+    transition: all 0.3s ease;
+    color: var(--background-color);
+}
+
+/* Bevestigings pagina */
+
+.h1dank {
+    font-size: 32px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+}
+
+.dank {
+    font-size: 20px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+}
+
+.danku {
+    margin-bottom: 29.5vw;
+    font-size: 20px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+}
+
+.linking {
+    font-size: 20px;
+    color: var(--info-color);
+    display: inline-block;
+    text-decoration: none;
+    opacity: 0.75;
+    font-family: "Montserrat", sans-serif;
+}
+
+.linking:hover {
+    opacity: 1;
+}
+
+.padding-items {
+    margin-bottom: 1vw;
 }

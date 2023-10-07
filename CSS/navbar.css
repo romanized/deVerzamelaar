@@ -13,6 +13,8 @@
     /* Hoe: background-color: var(--primary-color: #007BFF); */
 }
 
+
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;

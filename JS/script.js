@@ -33,3 +33,24 @@ function showSlides() {
 document.addEventListener("DOMContentLoaded", function() {
     showSlides();
 });
+
+// Verzameling button function
+document.querySelectorAll('.buy-btn').forEach((button, index) => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.modal')[index].style.display = 'block';
+    });
+});
+
+document.querySelectorAll('.close').forEach((button, index) => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.modal')[index].style.display = 'none';
+    });
+});
+
+window.onclick = function(event) {
+    document.querySelectorAll('.modal').forEach(modal => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+}
