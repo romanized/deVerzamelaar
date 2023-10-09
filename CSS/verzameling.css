@@ -1,7 +1,6 @@
-/* Alle kleuren */
-:root {
+/* Fonts en alle kleuren */
+* {
     --primary-color: #007BFF;
-    --hover-button: #449effe5;
     --secondary-color: #2ECC71;
     --tertiary-color: #F1C40F;
     --background-color: #F7F7F7;
@@ -13,6 +12,8 @@
     --info-color: #17A2B8;
     /* Hoe: background-color: var(--primary-color: #007BFF); */
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&family=Montserrat:wght@500&display=swap');
 
 .grid-item {
     border-radius: 5%;

@@ -1,3 +1,35 @@
+<!-- PHP voor contact -->
+<?php
+session_start();
+include('../PHP/db_connection.php');
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $message = $_POST['message'] ?? '';
+
+    if(empty($name) || empty($email) || empty($message)) {
+        echo '<p class="p-error">Vul S.V.P alles in<p>';
+    } else {
+        try {
+            $stmt = $conn->prepare("INSERT INTO contact_messages (name, email, message, sent_at) VALUES (?, ?, ?, NOW())");
+            $stmt->bindParam(1, $name, PDO::PARAM_STR);
+            $stmt->bindParam(2, $email, PDO::PARAM_STR);
+            $stmt->bindParam(3, $message, PDO::PARAM_STR);
+
+            if ($stmt->execute()) {
+                $_SESSION['message'] = "Bericht succesvol verzonden!";
+            } else {
+                echo "Er is iets misgegaan, error code : " . $stmt->error;
+            }
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+}
+?>
+<!-- HTML -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +38,7 @@
     <title>Contact</title>
     <!-- Styling -->
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/contact.css">
     <link rel="stylesheet" href="../CSS/navbar.css">
     <!-- Logo -->
     <link rel="shortcut icon" href="../MEDIA/logo1.png" type="image/x-icon">
@@ -26,7 +59,10 @@
     <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <div class="loader "></div>
+    <!-- Preloader -->
+    <div class="loader"></div>
+
+    <!-- Header - Navbar -->
     <header class="animate__animated animate__fadeInDown">
         <a href="./index.html"><img src="../MEDIA/logo1.png" alt="logo" class="logo"></a> 
         <nav>
@@ -36,8 +72,25 @@
                 <li><a class="active" href="#">Contact</a></li>
             </ul>
         </nav>
-        <a href="#" class="cta"><button>Login</button></a>
+        <a href="./index.html#info-section-scrolling" class="cta"><button>Over ons</button></a>
     </header>
+
+    <!-- Contact -->
+    <section class="form-section animate__animated animate__bounceInUp">
+<div class="form-container">
+<div class="form">
+    <span class="heading">Contact ons</span>
+    <form action="contact.php" method="POST">
+        <input name="name" placeholder="Naam" type="text" class="input" required>
+        <input name="email" placeholder="Email" id="mail" type="email" class="input" required>
+        <textarea placeholder="Uw bericht" rows="10" cols="30" name="message" class="textarea" required></textarea>
+        <div class="button-container">
+        <input type="submit" class="send-button" value="Versturen">
+        </div>
+    </form>
+</div>
+</div>
+</section>
 
     <!-- Footer -->
     <footer>
@@ -59,5 +112,18 @@
         </ul>
         <p>© 2023 de Verzamelaars. Alle rechten voorbehouden.</p>
     </footer>
+
+    <!-- PHP Code voor popup -->
+    <?php if(isset($_SESSION['message'])): ?>
+    <script type="text/javascript">
+        alert("<?php echo $_SESSION['message']; ?>");
+        setTimeout(() => {
+            if(document.querySelector('.alert')) {
+                document.querySelector('.alert').remove();
+            }
+        }, 3000);
+    </script>
+    <?php unset($_SESSION['message']); ?>
+<?php endif; ?>
 </body>
 </html>

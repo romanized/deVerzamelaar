@@ -1,0 +1,123 @@
+/* Fonts en alle kleuren */
+* {
+    --primary-color: #007BFF;
+    --secondary-color: #2ECC71;
+    --tertiary-color: #F1C40F;
+    --background-color: #F7F7F7;
+    --navbar-footer-bg: #333333;
+    --main-text-color: #222222;
+    --secondary-text-color: #777777;
+    --success-color: #28A745;
+    --error-color: #DC3545;
+    --info-color: #17A2B8;
+    /* Hoe: background-color: var(--primary-color: #007BFF); */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&family=Montserrat:wght@500&display=swap');
+
+/* CSS voor contact */
+    .orange {
+        color: var(--primary-color);
+    }
+    
+  .form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    margin-top: -20px;
+}
+
+
+  .form-container {
+    font-family: "Montserrat", sans-serif;
+    max-width: 700px;
+    margin: 30px;
+    background-color: #001925;
+    padding: 30px;
+    border-left: 5px solid var(--primary-color);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  }
+  
+  .heading {
+    display: block;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+    padding-top: 12px;
+    margin-left: 38%;
+  }
+  
+  .form-container .form .input {
+    color: #87a4b6;
+    width: 100%;
+    background-color: #002733;
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    border-left: 1px solid transparent;
+  }
+  
+  .form-container .form .input:focus {
+    border-left: 5px solid var(--primary-color);
+  }
+  
+  .form-container .form .textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: #013747;
+    color: var(--primary-color);
+    font-weight: bold;
+    resize: none;
+    max-height: 150px;
+    margin-bottom: 20px;
+    border-left: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .form-container .form .textarea:focus {
+    border-left: 5px solid var(--primary-color);
+  }
+  
+  .form-container .form .button-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .form-container .form .button-container .send-button {
+    flex-basis: 100%;
+    background: var(--primary-color);
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .form-container .form .button-container .send-button:hover {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  .p-error {
+    font-size: 32px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: var(--background-color);
+    position: absolute;
+    top: 20%;
+    left: 42%;
+    z-index: 999;
+  }

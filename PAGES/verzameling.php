@@ -44,7 +44,10 @@ ini_set('display_errors', 1);
     <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <div class="loader "></div>
+    <!-- Preloader -->
+    <div class="loader"></div>
+
+    <!-- Header - Navbar -->
     <header class="animate__animated animate__fadeInDown">
     <a href="./index.html"><img src="../MEDIA/logo1.png" alt="logo" class="logo"></a> 
         <nav>
@@ -54,7 +57,7 @@ ini_set('display_errors', 1);
                 <li><a href="./contact.php">Contact</a></li>
             </ul>
         </nav>
-        <a href="#" class="cta"><button>Login</button></a>
+        <a href="./index.html#info-section-scrolling" class="cta"><button>Over ons</button></a>
     </header>
 
     <!-- Verzameling -->

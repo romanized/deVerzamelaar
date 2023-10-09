@@ -1,3 +1,4 @@
+<!-- Maakt connectiem met de database -->
 <?php
 $servername = "localhost";
 $username = "root";
