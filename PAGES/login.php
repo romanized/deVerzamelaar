@@ -1,50 +1,51 @@
-<!-- PHP voor contact -->
+<!-- PHP voor inlog systeem -->
 <?php
 session_start();
-include('../PHP/db_connection.php');
+include '../PHP/db_connection.php';
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    try {
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username");
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $message = $_POST['message'] ?? '';
-
-    if(empty($name) || empty($email) || empty($message)) {
-        echo '<p class="p-error">Vul S.V.P alles in<p>';
-    } else {
-        try {
-            $stmt = $conn->prepare("INSERT INTO contact_messages (name, email, message, sent_at) VALUES (?, ?, ?, NOW())");
-            $stmt->bindParam(1, $name, PDO::PARAM_STR);
-            $stmt->bindParam(2, $email, PDO::PARAM_STR);
-            $stmt->bindParam(3, $message, PDO::PARAM_STR);
-
-            if ($stmt->execute()) {
-                $_SESSION['message'] = "Bericht succesvol verzonden!";
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($user) {
+            if (password_verify($password, $user['password'])) {
+                $_SESSION['is_admin'] = $user['is_admin'];
+                $_SESSION['username'] = $user['username'];
+                header("Location: admin_panel.php");
+                exit;
             } else {
-                echo "Er is iets misgegaan, error code : " . $stmt->error;
+                $error = "Onjuiste gebruikersnaam of wachtwoord.<br> Wachtwoord komt niet overeen.";
             }
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
+        } else {
+            $error = "Onjuiste gebruikersnaam of wachtwoord.<br> Gebruiker niet gevonden.";
+        }        
+    } catch (PDOException $e) {
+        $error = "Error: " . $e->getMessage();
     }
 }
 ?>
+
 <!-- HTML -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Log in</title>
     <!-- Styling -->
     <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/contact.css">
     <link rel="stylesheet" href="../CSS/navbar.css">
+    <link rel="stylesheet" href="../CSS/login.css">
     <!-- Logo -->
-    <link rel="shortcut icon" href="../MEDIA/logo1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../MEDIA/login.png" type="image/x-icon">
     <!-- Animate.css library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- Fonts -->
@@ -61,9 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
-<body>
+    <body>
     <!-- Preloader -->
-    <div class="loader"></div>
+    <div class="loader "></div>
 
     <!-- Header - Navbar -->
     <header class="animate__animated animate__fadeInDown">
@@ -72,35 +73,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <ul class="nav_links">
                 <li><a href="./index.php">Home</a></li>
                 <li><a href="./verzameling.php">Verzameling</a></li>
-                <li><a class="active" href="#">Contact</a></li>
-                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1): ?>
-                <li><a href="admin_panel.php">Admin</a></li>
-                <?php endif; ?>
+                <li><a href="./contact.php">Contact</a></li>
             </ul>
         </nav>
-        <!-- Login voor admins -->
-        <a href="./login.php" class="cta"><button>Log in</button></a>
+        <a></a>
     </header>
-
-    <!-- Contact -->
-    <section class="form-section animate__animated animate__bounceInUp">
-<div class="form-container">
-<div class="form">
-    <span class="heading">Contact ons</span>
-    <form action="contact.php" method="POST">
-        <input name="name" placeholder="Naam" type="text" class="input" required>
-        <input name="email" placeholder="Email" id="mail" type="email" class="input" required>
-        <textarea placeholder="Uw bericht" rows="10" cols="30" name="message" class="textarea" required></textarea>
-        <div class="button-container">
-        <input type="submit" class="send-button" value="Versturen">
-        </div>
-    </form>
-</div>
-</div>
-</section>
-
-    <!-- Footer -->
-    <footer>
+    <!-- Login section -->
+    <main>
+    <div class="login-container">
+        <?php if (!empty($error)): ?>
+            <p class="error"><?php echo $error; ?></p>
+        <?php endif; ?>
+        <form method="post" action="">
+            <label for="username">Gebruikersnaam:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Wachtwoord:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    </main>
+        <!-- Footer -->
+        <footer>
         <div class="waves">
             <div class="wave" id="wave1"></div>
             <div class="wave" id="wave2"></div>
@@ -115,22 +109,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <ul class="menu">
             <li><a href="./index.php">Home</a></li>
             <li><a href="./verzameling.php">Verzameling</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="./contact.php">Contact</a></li>
         </ul>
         <p>© 2023 de Verzamelaars. Alle rechten voorbehouden.</p>
     </footer>
-
-    <!-- PHP Code voor popup -->
-    <?php if(isset($_SESSION['message'])): ?>
-    <script type="text/javascript">
-        alert("<?php echo $_SESSION['message']; ?>");
-        setTimeout(() => {
-            if(document.querySelector('.alert')) {
-                document.querySelector('.alert').remove();
-            }
-        }, 3000);
-    </script>
-    <?php unset($_SESSION['message']); ?>
-<?php endif; ?>
 </body>
 </html>

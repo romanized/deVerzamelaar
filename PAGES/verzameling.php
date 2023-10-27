@@ -1,6 +1,9 @@
 <!-- PHP -->
 <?php
 include '../PHP/db_connection.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 try {
     $stmt = $conn->prepare("SELECT * FROM `verzameling`");
@@ -52,12 +55,16 @@ ini_set('display_errors', 1);
     <a href="./index.html"><img src="../MEDIA/logo1.png" alt="logo" class="logo"></a> 
         <nav>
             <ul class="nav_links">
-                <li><a href="./index.html">Home</a></li>
+                <li><a href="./index.php">Home</a></li>
                 <li><a class="active" href="#">Verzameling</a></li>
                 <li><a href="./contact.php">Contact</a></li>
+                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1): ?>
+                <li><a href="admin_panel.php">Admin</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
-        <a href="./index.html#info-section-scrolling" class="cta"><button>Over ons</button></a>
+        <!-- Login voor admins -->
+        <a href="./login.php" class="cta"><button>Log in</button></a>
     </header>
 
     <!-- Verzameling -->
@@ -87,7 +94,7 @@ ini_set('display_errors', 1);
             <li><a target="_blank" href="https://github.com/romanized"><ion-icon name="logo-github"></ion-icon></a></li>
         </ul>
         <ul class="menu">
-            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.php">Home</a></li>
             <li><a href="./verzameling.php">Verzameling</a></li>
             <li><a href="./contact.php">Contact</a></li>
         </ul>

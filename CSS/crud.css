@@ -1,0 +1,115 @@
+/* Fonts en alle kleuren */
+* {
+    --primary-color: #007BFF;
+    --secondary-color: #2ECC71;
+    --tertiary-color: #F1C40F;
+    --background-color: #F7F7F7;
+    --navbar-footer-bg: #333333;
+    --main-text-color: #222222;
+    --secondary-text-color: #777777;
+    --success-color: #28A745;
+    --error-color: #DC3545;
+    --info-color: #17A2B8;
+    /* Hoe: background-color: var(--primary-color: #007BFF); */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&family=Montserrat:wght@500&display=swap');
+
+HTML {
+    font-family: "Montserrat", sans-serif;
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+.admin-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: var(--background-color);
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.submit-button {
+    opacity: 70%;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.submit-button:hover {
+    opacity: 100%;
+    background-color: var(--primary-color);
+}
+
+.terug-button {
+    opacity: 70%;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.error-message {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.success-message {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.tekst-kleur {
+    color: var(--background-color);
+}
+
+input,
+textarea{
+    width: 100%;
+    padding: 8px;
+    filter:brightness(120%);
+    box-sizing: border-box;
+    color: var(--secondary-text-color);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

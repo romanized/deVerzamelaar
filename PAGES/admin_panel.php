@@ -1,15 +1,38 @@
+<!-- PHP -->
+<?php
+session_start();
+include '../PHP/db_connection.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
+    header('Location: login.php');
+    exit;
+}
+
+try {
+    $stmt = $conn->prepare("SELECT * FROM verzameling");
+    $stmt->execute();
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
+
+<!-- HTML -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aankoop bevestiging</title>
+    <title>Admin</title>
     <!-- Styling -->
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/navbar.css">
-    <link rel="stylesheet" href="../CSS/verzameling.css">
+    <link rel="stylesheet" href="../CSS/admin.css">
     <!-- Logo -->
-    <link rel="shortcut icon" href="../MEDIA/logo1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../MEDIA/admin.png" type="image/x-icon">
     <!-- Animate.css library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- Fonts -->
@@ -26,9 +49,9 @@
     <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
-<body>
+    <body>
     <!-- Preloader -->
-    <div class="loader"></div>
+    <div class="loader "></div>
 
     <!-- Header - Navbar -->
     <header class="animate__animated animate__fadeInDown">
@@ -40,36 +63,32 @@
                 <li><a href="./contact.php">Contact</a></li>
             </ul>
         </nav>
-        <!-- Login voor admins -->
-        <a href="./login.php" class="cta"><button>Log in</button></a>
+        <a></a>
     </header>
 
-    <center>
-    <h1 class="h1dank">Dank u voor uw aankoop!</h1>
-    <h2 class="dank">Hartelijk dank voor het winkelen bij de Verzamelaars. Uw bestelling is succesvol ontvangen!</h2>
-    <h2 class="danku">Klik <a class="linking" href="./index.html">hier</a> om weer terug te gaan naar onze home pagina</h2>
-</center>
-
-    <!-- Footer -->
-    <footer>
-        <div class="waves">
-            <div class="wave" id="wave1"></div>
-            <div class="wave" id="wave2"></div>
-            <div class="wave" id="wave3"></div>
-            <div class="wave" id="wave4"></div>
-        </div>
-        <ul class="social_icon">
-            <li><a target="_blank" href="https://www.instagram.com/sfzls/"><ion-icon name="logo-instagram"></ion-icon></a></li>
-            <li><a target="_blank" href="https://www.glr.nl/"><ion-icon name="school-outline"></ion-icon></a></li>
-            <li><a target="_blank" href="https://github.com/romanized"><ion-icon name="logo-github"></ion-icon></a></li>
-        </ul>
-        <ul class="menu">
-            <li><a href="./index.php">Home</a></li>
-            <li><a href="./verzameling.php">Verzameling</a></li>
-            <li><a href="./contact.php">Contact</a></li>
-        </ul>
-        <p>© 2023 de Verzamelaars. Alle rechten voorbehouden.</p>
-    </footer>    
-
+    <!--Admin Panel  -->
+    <main>
+    <div class="admin-container">
+        <h1>Admin Paneel</h1>
+        <a class="admin_links" href="nieuw.php" class="btn-add">Voeg Product Toe</a>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Naam</th>
+                <th>Acties</th>
+            </tr>
+            <?php foreach ($products as $product): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($product['ID']); ?></td>
+                    <td><?php echo htmlspecialchars($product['naam']); ?></td>
+                    <td class="actions">
+                        <a class="admin_links" href="bewerk.php?id=<?php echo htmlspecialchars($product['ID']); ?>">Bewerk</a>
+                        <a class="admin_links verwijder_padding" href="verwijder.php?id=<?php echo htmlspecialchars($product['ID']); ?>">Verwijder</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
+</main>
 </body>
 </html>

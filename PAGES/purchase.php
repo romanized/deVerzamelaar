@@ -1,6 +1,9 @@
 <!-- PHP -->
 <?php
 include '../PHP/db_connection.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
@@ -68,12 +71,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="./index.html"><img src="../MEDIA/logo1.png" alt="logo" class="logo"></a> 
         <nav>
             <ul class="nav_links">
-                <li><a href="./index.html">Home</a></li>
+                <li><a href="./index.php">Home</a></li>
                 <li><a href="./verzameling.php">Verzameling</a></li>
                 <li><a href="./contact.php">Contact</a></li>
+                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1): ?>
+                <li><a href="admin_panel.php">Admin</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
-        <a href="./index.html#info-section-scrolling" class="cta"><button>Over ons</button></a>
+        <!-- Login voor admins -->
+        <a href="./login.php" class="cta"><button>Log in</button></a>
     </header>
 
 <!-- Kopen product -->
@@ -98,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" id="address" name="address" required><br>
 
             <input type="submit" value="Buy">
-            <p class="prijs animate__animated animate__fadeIn ">Prijs: <?php echo $product['prijs']; ?></p>
+            <p class="prijs animate__animated animate__fadeIn ">Prijs: €<?php echo $product['prijs']; ?></p>
             </form>
     <?php endif; ?>
 
@@ -116,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li><a target="_blank" href="https://github.com/romanized"><ion-icon name="logo-github"></ion-icon></a></li>
         </ul>
         <ul class="menu">
-            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.php">Home</a></li>
             <li><a href="./verzameling.php">Verzameling</a></li>
             <li><a href="./contact.php">Contact</a></li>
         </ul>

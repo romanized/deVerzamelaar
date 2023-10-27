@@ -1,3 +1,10 @@
+<!-- PHP -->
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
+<!-- HTML -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,9 +44,13 @@
                 <li><a class="active" href="#">Home</a></li>
                 <li><a href="./verzameling.php">Verzameling</a></li>
                 <li><a href="./contact.php">Contact</a></li>
+                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1): ?>
+                <li><a href="admin_panel.php">Admin</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
-        <a href="#info-section-scrolling" class="cta"><button>Over ons</button></a>
+        <!-- Login voor admins -->
+        <a href="./login.php" class="cta"><button>Log in</button></a>
     </header>
 
     <main>
