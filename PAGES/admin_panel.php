@@ -70,7 +70,7 @@ try {
     <main>
     <div class="admin-container">
         <h1>Admin Paneel</h1>
-        <a class="admin_links" href="nieuw.php" class="btn-add">Voeg Product Toe</a>
+        <a class="admin_links" href="nieuw.php" class="changed_opacity btn-add">Voeg Product Toe</a>
         <table>
             <tr>
                 <th>ID</th>
@@ -82,8 +82,8 @@ try {
                     <td><?php echo htmlspecialchars($product['ID']); ?></td>
                     <td><?php echo htmlspecialchars($product['naam']); ?></td>
                     <td class="actions">
-                        <a class="admin_links" href="bewerk.php?id=<?php echo htmlspecialchars($product['ID']); ?>">Bewerk</a>
-                        <a class="admin_links verwijder_padding" href="verwijder.php?id=<?php echo htmlspecialchars($product['ID']); ?>">Verwijder</a>
+                        <a class="changed_opacity admin_links" href="bewerk.php?id=<?php echo htmlspecialchars($product['ID']); ?>">Bewerk</a>
+                        <a class="changed_opacity admin_links verwijder_padding" href="verwijder.php?id=<?php echo htmlspecialchars($product['ID']); ?>">Verwijder</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
