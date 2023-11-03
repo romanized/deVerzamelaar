@@ -114,3 +114,16 @@ textarea{
     border-radius: 5px;
 }
 
+
+.changed_opacity {
+    opacity: 80%;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s none ease;
+}
+
+.changed_opacity:hover {
+    opacity: 100%;
+    text-decoration: none;
+    cursor: pointer;
+}

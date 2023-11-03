@@ -55,7 +55,7 @@ try {
 
     <!-- Header - Navbar -->
     <header class="animate__animated animate__fadeInDown">
-        <a href="./index.html"><img src="../MEDIA/logo1.png" alt="logo" class="logo"></a> 
+        <a href="./index.php"><img src="../MEDIA/logo1.png" alt="logo" class="logo"></a> 
         <nav>
             <ul class="nav_links">
                 <li><a href="./index.php">Home</a></li>
