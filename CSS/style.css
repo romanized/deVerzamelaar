@@ -115,7 +115,7 @@ header {
     color: var(--secondary-color);
 }
 
-button {
+.loginbutton {
     padding: 9px 25px;
     background-color: var(--success-color);
     border: none;
@@ -124,7 +124,7 @@ button {
     transition: all 0.3s ease 0s;
 }
 
-button:hover {
+.loginbutton:hover {
     background-color: var(--secondary-color);
 }
 
@@ -407,4 +407,39 @@ footer .wave#wave4 {
 
 .titel-overons {
     padding-bottom: 10px;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    right: -100%; 
+    width: 300px;
+    padding: 10px;
+    background: var(--primary-color);
+    color: var(--info-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    transition: right 0.5s; 
+    z-index: 1001; 
+}
+
+.closePopup {
+    float: right;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: var(--navbar-footer-bg);
+}
+
+.popup-active {
+    right: 20px;
+    transition: right 0.5s; 
+}
+
+.popup-text {
+    padding: 18px;
+    font-size: 0.9em;
+    font-family: "Montserrat", sans-serif;
 }
