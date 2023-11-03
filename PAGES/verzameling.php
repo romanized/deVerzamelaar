@@ -64,7 +64,7 @@ ini_set('display_errors', 1);
             </ul>
         </nav>
         <!-- Login voor admins -->
-        <a href="./login.php" class="cta"><button>Log in</button></a>
+        <a href="./login.php" class="cta"><button class="loginbutton">Log in</button></a>
     </header>
 
     <!-- Verzameling -->
