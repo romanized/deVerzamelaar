@@ -73,9 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li><a href="./index.php">Home</a></li>
                 <li><a href="./verzameling.php">Verzameling</a></li>
                 <li><a class="active" href="#">Contact</a></li>
-                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1): ?>
-                <li><a href="admin_panel.php">Admin</a></li>
-                <?php endif; ?>
             </ul>
         </nav>
         <!-- Login voor admins -->

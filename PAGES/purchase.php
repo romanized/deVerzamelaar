@@ -74,9 +74,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li><a href="./index.php">Home</a></li>
                 <li><a href="./verzameling.php">Verzameling</a></li>
                 <li><a href="./contact.php">Contact</a></li>
-                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1): ?>
-                <li><a href="admin_panel.php">Admin</a></li>
-                <?php endif; ?>
             </ul>
         </nav>
         <!-- Login voor admins -->
@@ -105,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" id="address" name="address" required><br>
 
             <input type="submit" value="Buy">
-            <p class="prijs animate__animated animate__fadeIn ">Prijs: €<?php echo $product['prijs']; ?></p>
+            <p class="prijs animate__animated animate__fadeIn ">Prijs: <?php echo $product['prijs']; ?></p>
             </form>
     <?php endif; ?>
 

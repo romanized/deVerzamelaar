@@ -19,6 +19,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.nav-links {
+    text-decoration: none;
+}
+
 .admin-container {
     max-width: 800px;
     margin: 20px auto;
@@ -35,7 +39,7 @@ h1 {
 }
 
 .admin_links {
-    color: black;
+    color: white;
     text-decoration: none;
 }
 

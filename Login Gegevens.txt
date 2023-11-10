@@ -6,7 +6,6 @@ Wachtwoord: nebi
 
 **
 Het wachtwoord is in de database gehashed:
-id = '2'
 username = 'nebi'
 password = '$2y$10$if4oBkPdmaVag0UNeRDmVO9.Af.HlL/USaAmSTRpMSSL2cua1q1DO'
 is_admin = '1'
